@@ -1,0 +1,33 @@
+Login
+
+Menú
+Que mascota te gustaía adoptar?
+1 Animales
+2 Peces
+3 Pajaros
+
+1 Animales
+    Perro
+        Tiene jardín
+    Gato
+        Tiene redes
+    Conejo
+        Tiene jardín
+
+2 Peces
+    Tiene pecera
+    Goldfish
+    Angel
+    x
+    x
+    x
+
+Pajaros
+    Tiene jaula?
+    Loro
+    Cotorra
+    Pato
+    Tucan
+
+Gracias por adoptar responsablemente
+Cerrar sesión
