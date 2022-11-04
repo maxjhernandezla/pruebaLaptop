@@ -31,3 +31,8 @@ Pajaros
 
 Gracias por adoptar responsablemente
 Cerrar sesión
+
+Quieres dar en adopcion?
+if si --> switch para ver que animal es
+    pedirle que ingrese caracteristicas
+if no --> menuPrincipal()
