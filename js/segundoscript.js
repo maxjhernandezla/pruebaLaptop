@@ -1,7 +1,7 @@
 let nombreUsuario = "Max";
 let passUsuario = "1234";
 let ingresar = false;
-
+let continuar = true;
 // \n
 
 class Perro {
@@ -70,10 +70,11 @@ const conejosEnAdopcion = [
 
 const conejosAdoptados = [];
 
-let continuar = true;
+
 
 function darUnPerrito() {
   while (continuar) {
+    let continuar = true;
     let ingresoDelPerro = prompt(
       "Ingresa la siguiente información del perro: nombre, raza, edad y sexo separados por una barra diagonal (/). Ingresa X para finalizar."
     );
@@ -81,6 +82,9 @@ function darUnPerrito() {
     if (ingresoDelPerro.toLowerCase() === "x") {
       continuar = false;
       break;
+    } else if (ingresoDelPerro === ''){
+      alert('No has ingresado nada, inténtalo de nuevo!')
+      darUnPerrito();
     }
 
     const datosDelPerro = ingresoDelPerro.split("/");
@@ -101,6 +105,7 @@ function darUnPerrito() {
 
 function darUnGatito() {
   while (continuar) {
+    let continuar = true;
     let ingresoDelGato = prompt(
       "Ingresa la siguiente información del gato: nombre, raza, edad y sexo separados por una barra diagonal (/). Ingresa X para finalizar."
     );
@@ -108,6 +113,9 @@ function darUnGatito() {
     if (ingresoDelGato.toLowerCase() === "x") {
       continuar = false;
       break;
+    }else if (ingresoDelGato === ''){
+      alert('No has ingresado nada, inténtalo de nuevo!')
+      darUnGatito();
     }
 
     const datosDelGato = ingresoDelGato.split("/");
@@ -128,6 +136,7 @@ function darUnGatito() {
 
 function darUnConejo() {
   while (continuar) {
+    let continuar = true;
     let ingresoDelConejo = prompt(
       "Ingresa la siguiente información del conejo: nombre, raza, edad y sexo separados por una barra diagonal (/). Ingresa X para finalizar."
     );
@@ -135,6 +144,9 @@ function darUnConejo() {
     if (ingresoDelConejo.toLowerCase() === "x") {
       continuar = false;
       break;
+    } else if (ingresoDelConejo === ''){
+      alert('No has ingresado nada, inténtalo de nuevo!')
+      darUnConejo();
     }
 
     const datosDelConejo = ingresoDelConejo.split("/");
@@ -178,11 +190,12 @@ function darEnAdopcion() {
 }
 
 function crearStringPerritos() {
-  let info = "";
+  let info = "Puedes adopatar a:\n";
+  let finalizar = "Presiona 'x' para volver al Menú Principal"
   perritosEnAdopcion.forEach((elemento) => {
     info +=
       elemento.id +
-      " " +
+      "- " +
       "Nombre: " +
       elemento.nombre +
       "\nRaza: " +
@@ -193,8 +206,8 @@ function crearStringPerritos() {
       elemento.sexo +
       "\n\n";
   });
-
-  return info;
+  
+  return info + finalizar;
 }
 
 function adoptarUnPerrito() {
@@ -204,10 +217,13 @@ function adoptarUnPerrito() {
     return perro.id === parseInt(perroAdoptado);
   });
 
-  if (!perroElegido) {
-    alert("Opción inválida!");
-    adoptarUnPerrito();
-    return;
+  if (perroAdoptado.toLowerCase() === 'x') {
+    menuPrincipal();
+    return
+  } else if (!perroElegido) {
+      alert("Opción inválida!");
+      menuPrincipal();
+      return;
   }
 
   const perroElegidoIndex = perritosEnAdopcion.findIndex((perro) => {
@@ -219,16 +235,17 @@ function adoptarUnPerrito() {
   perrosAdoptados.push(perroElegido);
   console.log(perrosAdoptados);
 
-  alert("Felicitaciones adoptaste a : " + perroElegido.nombre);
+  alert("Felicitaciones adoptaste a " + perroElegido.nombre + '!');
   seguirAdoptando();
 }
 
 function crearStringGatitos() {
-  let info = "";
+  let info = "Puedes adopatar a:\n";
+  let finalizar = "Presiona 'x' para volver al Menú Principal"
   gatitosEnAdopcion.forEach((elemento) => {
     info +=
       elemento.id +
-      " " +
+      "- " +
       "Nombre: " +
       elemento.nombre +
       "\nRaza: " +
@@ -240,7 +257,7 @@ function crearStringGatitos() {
       "\n\n";
   });
 
-  return info;
+  return info + finalizar;
 }
 
 function adoptarUnGatito() {
@@ -250,10 +267,13 @@ function adoptarUnGatito() {
     return gato.id === parseInt(gatoAdoptado);
   });
 
-  if (!gatoElegido) {
-    alert("Opción inválida!");
-    adoptarUnGatito();
-    return;
+  if (gatoAdoptado.toLowerCase() === 'x') {
+    menuPrincipal();
+    return
+  } else if (!gatoElegido) {
+      alert("Opción inválida!");
+      menuPrincipal();
+      return;
   }
 
   const gatoElegidoIndex = gatitosEnAdopcion.findIndex((gato) => {
@@ -265,16 +285,17 @@ function adoptarUnGatito() {
   gatosAdoptados.push(gatoElegido);
   console.log(gatosAdoptados);
 
-  alert("Felicitaciones adoptaste a : " + gatoElegido.nombre);
+  alert("Felicitaciones adoptaste a " + gatoElegido.nombre + '!');
   seguirAdoptando();
 }
 
 function crearStringConejos() {
-  let info = "";
+  let info = "Puedes adopatar a:\n";
+  let finalizar = "Presiona 'x' para volver al Menú Principal"
   conejosEnAdopcion.forEach((elemento) => {
     info +=
       elemento.id +
-      " " +
+      "- " +
       "Nombre: " +
       elemento.nombre +
       "\nRaza: " +
@@ -286,7 +307,7 @@ function crearStringConejos() {
       "\n\n";
   });
 
-  return info;
+  return info + finalizar;
 }
 function adoptarUnConejo() {
   let conejoAdoptado = prompt(crearStringConejos());
@@ -295,10 +316,13 @@ function adoptarUnConejo() {
     return conejo.id === parseInt(conejoAdoptado);
   });
 
-  if (!conejoElegido) {
-    alert("Opción inválida!");
-    adoptarUnConejo();
-    return;
+  if (conejoAdoptado.toLowerCase() === 'x') {
+    menuPrincipal();
+    return
+  } else if (!conejoElegido) {
+      alert("Opción inválida!");
+      menuPrincipal();
+      return;
   }
 
   const conejoElegidoIndex = conejosEnAdopcion.findIndex((conejo) => {
@@ -310,7 +334,7 @@ function adoptarUnConejo() {
   conejosAdoptados.push(conejoElegido);
   console.log(conejosAdoptados);
 
-  alert("Felicitaciones adoptaste a : " + conejoElegido.nombre);
+  alert("Felicitaciones adoptaste a " + conejoElegido.nombre + '!');
   seguirAdoptando();
 }
 
@@ -375,7 +399,7 @@ function login() {
       break;
     }
 
-    let nombreElegido = prompt("Ingresa tu nombre de usuario.");
+    let nombreElegido = prompt("Ingresa tu nombre de usuario. Solo tienes " + i +' oportunidades');
     let passElegida = prompt("Ingresa tu contraseña");
 
     if (nombreElegido === nombreUsuario && passElegida === passUsuario) {
