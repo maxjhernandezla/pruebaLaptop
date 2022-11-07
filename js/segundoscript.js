@@ -360,27 +360,35 @@ function adoptar() {
   }
 }
 
+// function mostrarPerrosAdoptados() {
+//   let info = " ";
+//   perrosAdoptados.forEach((perro) => {
+//     info += "\n" + perro.nombre;
+//   });
+//   return info;
+// }
+
 function mostrarPerrosAdoptados() {
-  let info = " ";
-  perrosAdoptados.forEach((perro) => {
-    info += "\n" + perro.nombre;
+  let space = " ";
+  perrosAdoptados.map(perro => {
+    space += "\n" + perro.nombre;
   });
-  return info;
+  return space;
 }
 
 function mostrarGatosAdoptados() {
-  let info = " ";
-  gatosAdoptados.forEach((gato) => {
-    info += "\n" + gato.nombre;
+  let space = " ";
+  gatosAdoptados.map(gato => {
+    space += "\n" + gato.nombre;
   });
-  return info;
+  return space;
 }
 function mostrarConejosAdoptados() {
-  let info = " ";
-  conejosAdoptados.forEach((conejo) => {
-    info += "\n" + conejo.nombre;
+  let space = " ";
+  conejosAdoptados.map(conejo => {
+    space += "\n" + conejo.nombre;
   });
-  return info;
+  return space;
 }
 
 function mostrarAdoptados() {
