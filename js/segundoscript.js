@@ -370,25 +370,25 @@ function adoptar() {
 
 function mostrarPerrosAdoptados() {
   let space = " ";
-  perrosAdoptados.map(perro => {
+  const nombreDeAdoptados = perrosAdoptados.map(perro => {
     space += "\n" + perro.nombre;
   });
-  return space;
+  return space + nombreDeAdoptados;
 }
 
 function mostrarGatosAdoptados() {
   let space = " ";
-  gatosAdoptados.map(gato => {
+  const nombreDeAdoptados = gatosAdoptados.map(gato => {
     space += "\n" + gato.nombre;
   });
-  return space;
+  return space + nombreDeAdoptados;
 }
 function mostrarConejosAdoptados() {
   let space = " ";
-  conejosAdoptados.map(conejo => {
+  const nombreDeAdoptados = conejosAdoptados.map(conejo => {
     space += "\n" + conejo.nombre;
   });
-  return space;
+  return space + nombreDeAdoptados;
 }
 
 function mostrarAdoptados() {
